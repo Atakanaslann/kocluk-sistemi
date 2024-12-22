@@ -7,12 +7,13 @@ use App\Http\Controllers\layouts\WithoutNavbar;
 use App\Http\Controllers\layouts\Fluid;
 use App\Http\Controllers\layouts\Container;
 use App\Http\Controllers\layouts\Blank;
+use App\Http\Controllers\layouts\Ders;
 use App\Http\Controllers\pages\AccountSettingsAccount;
 use App\Http\Controllers\pages\AccountSettingsNotifications;
 use App\Http\Controllers\pages\AccountSettingsConnections;
 use App\Http\Controllers\pages\MiscError;
 use App\Http\Controllers\pages\MiscUnderMaintenance;
-use App\Http\Controllers\authentications\LoginBasic;
+use App\Http\Controllers\authentications\giris;
 use App\Http\Controllers\authentications\RegisterBasic;
 use App\Http\Controllers\authentications\ForgotPasswordBasic;
 use App\Http\Controllers\cards\CardBasic;
@@ -53,6 +54,7 @@ Route::get('/layouts/without-navbar', [WithoutNavbar::class, 'index'])->name('la
 Route::get('/layouts/fluid', [Fluid::class, 'index'])->name('layouts-fluid');
 Route::get('/layouts/container', [Container::class, 'index'])->name('layouts-container');
 Route::get('/layouts/blank', [Blank::class, 'index'])->name('layouts-blank');
+Route::get('/layouts/ders', [Ders::class, 'index'])->name('layouts-ders');
 
 // pages
 Route::get('/pages/account-settings-account', [AccountSettingsAccount::class, 'index'])->name('pages-account-settings-account');
@@ -62,7 +64,7 @@ Route::get('/pages/misc-error', [MiscError::class, 'index'])->name('pages-misc-e
 Route::get('/pages/misc-under-maintenance', [MiscUnderMaintenance::class, 'index'])->name('pages-misc-under-maintenance');
 
 // authentication
-Route::get('/auth/login-basic', [LoginBasic::class, 'index'])->name('auth-login-basic');
+Route::get('/auth/giris', [giris::class, 'index'])->name('auth-login-basic');
 Route::get('/auth/register', [RegisterBasic::class, 'index'])->name('register.form');
 Route::post('/auth/register', [RegisterBasic::class, 'register'])->name('register.submit');
 Route::get('/auth/forgot-password-basic', [ForgotPasswordBasic::class, 'index'])->name('auth-reset-password-basic');
@@ -107,4 +109,4 @@ Route::get('/form/layouts-vertical', [VerticalForm::class, 'index'])->name('form
 Route::get('/form/layouts-horizontal', [HorizontalForm::class, 'index'])->name('form-layouts-horizontal');
 
 // tables
-Route::get('/tables/basic', [TablesBasic::class, 'index'])->name('tables-basic');
+// Route::get('/tables/basic', [TablesBasic::class, 'index'])->name('tables-basic');
