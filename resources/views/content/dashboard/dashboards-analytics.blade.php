@@ -17,9 +17,9 @@
 @section('content')
 <div class="row gy-4">
   <!-- Congratulations card -->
-  <div class="col-md-12 col-lg-4">
+  <div class="col-xl-4 col-md-6">
     <div class="card">
-      <div class="card-body">
+      <div class="card-header">
         <h4 class="card-title mb-1">Tebrikler Atakan! 🎉</h4>
         <p class="pb-0">Bu Ayki En Çok Soru Çözen Sensin 🎉</p>
         <h4 class="text-primary mb-1">3000</h4>
@@ -32,7 +32,35 @@
   </div>
   <!--/ Congratulations card -->
 
-  <!-- Transactions -->
+  <!-- Weekly Overview Chart -->
+  <div class="col-xl-4 col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="d-flex justify-content-between">
+          <h5 class="mb-1">Haftalık Soru Sayısı</h5>
+          <div class="dropdown">
+            
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div id="weeklyOverviewChart"></div>
+        <div class="mt-1 mt-md-3">
+          <div class="d-flex align-items-center gap-3">
+            <h3 class="mb-0">1250</h3>
+            <p class="mb-0">Bu Haftalık Soru Sayısı</p>
+          </div>
+          <div class="d-grid mt-3 mt-md-4">
+            <button class="btn btn-primary" type="button">Detaylar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/ Weekly Overview Chart -->
+
+
+  {{-- <!-- Transactions -->
   <div class="col-lg-8">
     <div class="card">
       <div class="card-header">
@@ -109,36 +137,10 @@
       </div>
     </div>
   </div>
-  <!--/ Transactions -->
+  <!--/ Transactions --> --}}
 
-  <!-- Weekly Overview Chart -->
-  <div class="col-xl-4 col-md-6">
-    <div class="card">
-      <div class="card-header">
-        <div class="d-flex justify-content-between">
-          <h5 class="mb-1">Haftalık Soru Sayısı</h5>
-          <div class="dropdown">
-            
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div id="weeklyOverviewChart"></div>
-        <div class="mt-1 mt-md-3">
-          <div class="d-flex align-items-center gap-3">
-            <h3 class="mb-0">1250</h3>
-            <p class="mb-0">Bu Haftalık Soru Sayısı</p>
-          </div>
-          <div class="d-grid mt-3 mt-md-4">
-            <button class="btn btn-primary" type="button">Detaylar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--/ Weekly Overview Chart -->
-
-  <!-- Total Earnings -->
+  
+  {{-- <!-- Total Earnings -->
   <div class="col-xl-4 col-md-6">
     <div class="card">
       <div class="card-header d-flex align-items-center justify-content-between">
@@ -220,10 +222,10 @@
         </ul>
       </div>
     </div>
-  </div>
+  </div> --}}
   <!--/ Total Earnings -->
 
-  <!-- Four Cards -->
+  {{-- <!-- Four Cards -->
   <div class="col-xl-4 col-md-6">
     <div class="row gy-4">
       <!-- Total Profit line chart -->
@@ -315,11 +317,11 @@
       </div>
       <!--/ Sessions chart -->
     </div>
-  </div>
+  </div> --}}
   <!--/ Total Earning -->
 
   <!-- Sales by Countries -->
-  <div class="col-xl-4 col-md-6">
+  {{-- <div class="col-xl-4 col-md-6">
     <div class="card">
       <div class="card-header d-flex align-items-center justify-content-between">
         <h5 class="card-title m-0 me-2">Sales by Countries</h5>
@@ -432,10 +434,10 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
   <!--/ Sales by Countries -->
 
-  <!-- Deposit / Withdraw -->
+  {{-- <!-- Deposit / Withdraw -->
   <div class="col-xl-8">
     <div class="card h-100">
       <div class="card-body row g-2">
@@ -582,7 +584,7 @@
       </div>
     </div>
   </div>
-  <!-- Deposit / Withdraw -->
+  <!-- Deposit / Withdraw --> --}}
 
   <!-- Data Tables -->
   <div class="col-12">

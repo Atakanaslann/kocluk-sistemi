@@ -42,17 +42,13 @@ $navbarDetached = ($navbarDetached ?? '');
         <div class="navbar-nav align-items-center">
           <div class="nav-item d-flex align-items-center">
             <i class="mdi mdi-magnify mdi-24px lh-0"></i>
-            <input type="text" class="form-control border-0 shadow-none bg-body" placeholder="Search..." aria-label="Search...">
+            <input type="text" class="form-control border-0 shadow-none bg-body" placeholder="Ara..." aria-label="Ara...">
           </div>
         </div>
         <!-- /Search -->
         <ul class="navbar-nav flex-row align-items-center ms-auto">
 
-          <!-- Place this tag where you want the button to render. -->
-          <li class="nav-item lh-1 me-3">
-            <a class="github-button" href="https://github.com/themeselection/materio-bootstrap-html-laravel-admin-template-free" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star themeselection/materio-bootstrap-html-laravel-admin-template-free on GitHub">Star</a>
-          </li>
-
+          
           <!-- User -->
           <li class="nav-item navbar-dropdown dropdown-user dropdown">
             <a class="nav-link dropdown-toggle hide-arrow p-0" href="javascript:void(0);" data-bs-toggle="dropdown">
@@ -70,8 +66,8 @@ $navbarDetached = ($navbarDetached ?? '');
                       </div>
                     </div>
                     <div class="flex-grow-1">
-                      <h6 class="mb-0">John Doe</h6>
-                      <small class="text-muted">Admin</small>
+                      <h6 class="mb-0">Atakan Aslan</h6>
+                      <small class="text-muted">Student</small>
                     </div>
                   </div>
                 </a>
@@ -82,31 +78,23 @@ $navbarDetached = ($navbarDetached ?? '');
               <li>
                 <a class="dropdown-item" href="javascript:void(0);">
                   <i class="mdi mdi-account-outline me-1 mdi-20px"></i>
-                  <span class="align-middle">My Profile</span>
+                  <span class="align-middle">Profilim</span>
                 </a>
               </li>
               <li>
                 <a class="dropdown-item" href="javascript:void(0);">
                   <i class='mdi mdi-cog-outline me-1 mdi-20px'></i>
-                  <span class="align-middle">Settings</span>
+                  <span class="align-middle">Ayarlar</span>
                 </a>
               </li>
-              <li>
-                <a class="dropdown-item" href="javascript:void(0);">
-                  <span class="d-flex align-items-center align-middle">
-                    <i class="flex-shrink-0 mdi mdi-credit-card-outline me-1 mdi-20px"></i>
-                    <span class="flex-grow-1 align-middle ms-1">Billing</span>
-                    <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
-                  </span>
-                </a>
-              </li>
+              
               <li>
                 <div class="dropdown-divider my-1"></div>
               </li>
               <li>
                 <a class="dropdown-item" href="javascript:void(0);">
                   <i class='mdi mdi-power me-1 mdi-20px'></i>
-                  <span class="align-middle">Log Out</span>
+                  <span class="align-middle">Çıkış Yap</span>
                 </a>
               </li>
             </ul>
