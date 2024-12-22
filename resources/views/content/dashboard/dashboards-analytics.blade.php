@@ -593,12 +593,11 @@
         <table class="table">
           <thead class="table-light">
             <tr>
-              <th class="text-truncate">User</th>
+              <th class="text-truncate">Kullanıcı</th>
               <th class="text-truncate">Email</th>
-              <th class="text-truncate">Role</th>
-              <th class="text-truncate">Age</th>
-              <th class="text-truncate">Salary</th>
-              <th class="text-truncate">Status</th>
+              <th class="text-truncate">Görev</th>
+              <th class="text-truncate">Yaş</th>
+              <th class="text-truncate">Rol</th>
             </tr>
           </thead>
           <tbody>
