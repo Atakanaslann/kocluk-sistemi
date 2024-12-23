@@ -2,43 +2,57 @@
   "menu": [
     {
       "url": "/",
-      "name": "Dashboards",
+      "name": "Menü",
       "icon": "menu-icon tf-icons mdi mdi-home-outline",
       "slug": "dashboard",
       "badge": [
         "danger",
-        "5"
+        ""
       ],
       "submenu": [
         {
-          "url": "/layouts/ders",
-          "name": "Ders",
+          "url": "/layouts/Calismalar",
+          "name": "Çalışmalar",
           "slug": "dashboard-crm",
           "target": "_blank"
         },
         {
-          "url": "/",
-          "name": "Sorular",
-          "slug": "dashboard-analytics"
-        },
-        {
-          "url": "https://demos.themeselection.com/materio-bootstrap-html-laravel-admin-template/demo-1/app/ecommerce/dashboard",
-          "name": "eCommerce",
-          "slug": "app-ecommerce-dashboard",
+          "url": "/layouts/CalismaEkle",
+          "name": "Çalışma Ekle",
+          "slug": "dashboard-crm",
           "target": "_blank"
         },
         {
-          "url": "https://demos.themeselection.com/materio-bootstrap-html-laravel-admin-template/demo-1/app/logistics/dashboard",
-          "name": "Logistics",
-          "slug": "app-logistics-dashboard",
+          "url": "/layouts/Gorevlerim",
+          "name": "Görevlerim",
+          "slug": "dashboard-crm",
           "target": "_blank"
         },
         {
-          "url": "https://demos.themeselection.com/materio-bootstrap-html-laravel-admin-template/demo-1/app/academy/dashboard",
-          "name": "Academy",
-          "slug": "app-academy-dashboard",
+          "url": "/layouts/Konular",
+          "name": "Konular",
+          "slug": "dashboard-crm",
+          "target": "_blank"
+        },
+        {
+          "url": "/layouts/HaftalikPlan",
+          "name": "Haftalık Plan",
+          "slug": "dashboard-crm",
+          "target": "_blank"
+        },
+        {
+          "url": "/layouts/Kitaplar",
+          "name": "Kitaplar",
+          "slug": "dashboard-crm",
+          "target": "_blank"
+        },
+        {
+          "url": "/layouts/Denemeler",
+          "name": "Denemeler",
+          "slug": "dashboard-crm",
           "target": "_blank"
         }
+        
       ]
     },
     {

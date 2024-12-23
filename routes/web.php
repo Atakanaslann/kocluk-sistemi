@@ -1,5 +1,12 @@
 <?php
 
+use App\Http\Controllers\layouts\CalismaEkle;
+use App\Http\Controllers\layouts\Calismalar;
+use App\Http\Controllers\layouts\Denemeler;
+use App\Http\Controllers\layouts\Gorevlerim;
+use App\Http\Controllers\layouts\HaftalikPlan;
+use App\Http\Controllers\layouts\Kitaplar;
+use App\Http\Controllers\layouts\Konular;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboard\Analytics;
 use App\Http\Controllers\layouts\WithoutMenu;
@@ -55,6 +62,13 @@ Route::get('/layouts/fluid', [Fluid::class, 'index'])->name('layouts-fluid');
 Route::get('/layouts/container', [Container::class, 'index'])->name('layouts-container');
 Route::get('/layouts/blank', [Blank::class, 'index'])->name('layouts-blank');
 Route::get('/layouts/ders', [Ders::class, 'index'])->name('layouts-ders');
+Route::get('/layouts/HaftalikPlan', [HaftalikPlan::class, 'index'])->name('layouts-ders');
+Route::get('/layouts/Calismalar', [Calismalar::class, 'index'])->name('layouts-ders');
+Route::get('/layouts/CalismaEkle', [CalismaEkle::class, 'index'])->name('layouts-ders');
+Route::get('/layouts/Gorevlerim', [Gorevlerim::class, 'index'])->name('layouts-ders');
+Route::get('/layouts/Konular', [Konular::class, 'index'])->name('layouts-ders');
+Route::get('/layouts/Kitaplar', [Kitaplar::class, 'index'])->name('layouts-ders');
+Route::get('/layouts/Denemeler', [Denemeler::class, 'index'])->name('layouts-ders');
 
 // pages
 Route::get('/pages/account-settings-account', [AccountSettingsAccount::class, 'index'])->name('pages-account-settings-account');
