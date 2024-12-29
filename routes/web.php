@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\layouts\CalismaEkle;
 use App\Http\Controllers\layouts\Calismalar;
 use App\Http\Controllers\layouts\Denemeler;
@@ -50,6 +51,8 @@ use App\Http\Controllers\form_elements\BasicInput;
 use App\Http\Controllers\form_elements\InputGroups;
 use App\Http\Controllers\form_layouts\VerticalForm;
 use App\Http\Controllers\form_layouts\HorizontalForm;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\tables\Basic as TablesBasic;
 
 // Main Page Route
@@ -78,10 +81,10 @@ Route::get('/pages/misc-error', [MiscError::class, 'index'])->name('pages-misc-e
 Route::get('/pages/misc-under-maintenance', [MiscUnderMaintenance::class, 'index'])->name('pages-misc-under-maintenance');
 
 // authentication
-Route::get('/auth/giris', [giris::class, 'index'])->name('auth-login-basic');
-Route::get('/auth/register', [RegisterBasic::class, 'index'])->name('register.form');
-Route::post('/auth/register', [RegisterBasic::class, 'register'])->name('register.submit');
-Route::get('/auth/forgot-password-basic', [ForgotPasswordBasic::class, 'index'])->name('auth-reset-password-basic');
+// Route::get('/auth/giris', [giris::class, 'index'])->name('auth-login-basic');
+// Route::get('/auth/register', [RegisterBasic::class, 'index'])->name('register.form');
+// Route::post('/auth/register', [RegisterBasic::class, 'register'])->name('register.submit');
+// Route::get('/auth/forgot-password-basic', [ForgotPasswordBasic::class, 'index'])->name('auth-reset-password-basic');
 
 // cards
 Route::get('/cards/basic', [CardBasic::class, 'index'])->name('cards-basic');
@@ -124,3 +127,31 @@ Route::get('/form/layouts-horizontal', [HorizontalForm::class, 'index'])->name('
 
 // tables
 // Route::get('/tables/basic', [TablesBasic::class, 'index'])->name('tables-basic');
+
+
+Route::get('/',[HomeController::class, 'index']);
+
+
+Route::get('register',[AuthController::class, 'register']);
+Route::post('register_post',[AuthController::class, 'register_post']);
+
+
+Route::get('login',[AuthController::class, 'login']);
+Route::post('login_post',[AuthController::class, 'login_post']);
+
+
+Route::get('forgot',[AuthController::class, 'forgot']);
+
+Route::group(['middlewareAliases' => 'admin'], function(){
+    Route::get('admin/dashboard',[DashboardController::class,'dashboard']);
+});
+
+Route::group(['middlewareAliases' => 'coach'], function(){
+    Route::get('coach/dashboard',[DashboardController::class,'dashboard']);
+});
+
+
+Route::group(['middlewareAliases' => 'student'], function(){
+    Route::get('student/dashboard',[DashboardController::class,'dashboard']);
+});
+

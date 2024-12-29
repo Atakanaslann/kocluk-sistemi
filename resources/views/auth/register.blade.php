@@ -26,31 +26,42 @@
         <div class="card-body mt-2">
           <h4 class="mb-2">Hesap Oluştur 🚀</h4>
 
-          <form id="formAuthentication" class="mb-3" action="{{ route('register.submit') }}" method="POST">
+          <form class="mb-3" action="{{ url('register_post') }}" method="POST">
             @csrf
             <div class="form-floating form-floating-outline mb-3">
-                <input type="text" class="form-control" id="username" name="name" placeholder="Enter your username" autofocus>
+                <input type="text" class="form-control" name="name" placeholder="Enter your username" value="{{old('name')}}">
                 <label for="username">Kullanıcı Adı</label>
             </div>
             <div class="form-floating form-floating-outline mb-3">
-                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                <input type="email" class="form-control" value="{{old('email')}}" name="email" placeholder="Email">
                 <label for="email">Email</label>
             </div>
             <div class="mb-3 form-password-toggle">
                 <div class="input-group input-group-merge">
                     <div class="form-floating form-floating-outline">
-                        <input type="password" id="password" class="form-control" name="password" placeholder="Şifre">
+                        <input type="password" value="{{old('password')}}" class="form-control" name="password" placeholder="Şifre">
                         <label for="password">Şifre</label>
                     </div>
                 </div>
             </div>
+            <div class="row">
+              <br>
+              <select class="selectbox" name="role" required>
+                <option value="">Role Seç</optiom>
+                <option {{old('role') == '2' ? 'selected' : ''}} value="2">Öğrenci</optiom>
+                <option {{old('role') == '1' ? 'selected' : ''}} value="1">Koç</optiom>
+                <option {{old('role') == '0' ? 'selected' : ''}} value="0">Admin</optiom>
+              </select>
+              <br><br>
+            </div>
+            <br>
             <button class="btn btn-primary d-grid w-100">Üye Ol</button>
         </form>
         
 
           <p class="text-center">
             <span>Zaten Bir Hesabım Var?</span>
-            <a href="{{url('auth/login-basic')}}">
+            <a href="{{url('login')}}">
               <span>Oturum Aç</span>
             </a>
           </p>

@@ -27,10 +27,11 @@
           <h4 class="mb-2">Hoşgeldiniz! 👋</h4>
           <p class="mb-4">Lütfen hesabınıza giriş yapın</p>
 
-          <form id="formAuthentication" class="mb-3" action="{{url('/')}}" method="GET">
+          <form id="formAuthentication" class="mb-3" action="{{url('login_post')}}" method="POST">
+            @csrf
             <div class="form-floating form-floating-outline mb-3">
-              <input type="text" class="form-control" id="email" name="email-username" placeholder="Email veya Kullanıcı Adı" autofocus>
-              <label for="email">Email veya Kullanıcı Adı</label>
+              <input type="text" class="form-control" value="{{old('email')}}" name="email" placeholder="Email" autofocus required>
+              <label for="email">Email</label>
             </div>
             <div class="mb-3">
               <div class="form-password-toggle">
@@ -50,7 +51,7 @@
                   Beni Hatırla
                 </label>
               </div>
-              <a href="{{url('auth/forgot-password-basic')}}" class="float-end mb-1">
+              <a href="{{url('forgot')}}" class="float-end mb-1">
                 <span>Şifremi Unuttum?</span>
               </a>
             </div>
@@ -60,7 +61,7 @@
           </form>
 
           <p class="text-center">
-            <a href="{{url('auth/register')}}">
+            <a href="{{url('register')}}">
               <span>Hesap Oluştur</span>
             </a>
           </p>

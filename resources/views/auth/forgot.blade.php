@@ -34,7 +34,7 @@
             <button class="btn btn-primary d-grid w-100">Sıfırlama Bağlantısını Gönder</button>
           </form>
           <div class="text-center">
-            <a href="{{url('auth/login-basic')}}" class="d-flex align-items-center justify-content-center">
+            <a href="{{url('login')}}" class="d-flex align-items-center justify-content-center">
               <i class="mdi mdi-chevron-left scaleX-n1-rtl mdi-24px"></i>
               Girişe geri dön
             </a>
