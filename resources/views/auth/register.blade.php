@@ -18,8 +18,8 @@
         <!-- Logo -->
         <div class="app-brand justify-content-center mt-5">
           <a href="{{url('/')}}" class="app-brand-link gap-2">
-            <span class="app-brand-logo demo">@include('_partials.macros',["height"=>20])</span>
-            <span class="app-brand-text demo text-heading fw-semibold">{{ config('variables.templateName') }}</span>
+            {{-- <span class="app-brand-logo demo">@include('_partials.macros',["height"=>20])</span> --}}
+            <span class="app-brand-text demo text-heading fw-semibold">ATAY KOÇ</span>
           </a>
         </div>
         <!-- /Logo -->
@@ -46,14 +46,18 @@
             </div>
             <div class="row">
               <br>
-              <select class="selectbox" name="role" required>
-                <option value="">Role Seç</optiom>
-                <option {{old('role') == '2' ? 'selected' : ''}} value="2">Öğrenci</optiom>
-                <option {{old('role') == '1' ? 'selected' : ''}} value="1">Koç</optiom>
-                <option {{old('role') == '0' ? 'selected' : ''}} value="0">Admin</optiom>
-              </select>
+              <div class="form-floating form-floating-outline">
+                <select class="form-control selectbox" name="role" required >
+                  <option value="" disabled {{old('role') == '' ? 'selected' : ''}}>Role Seç</option>
+                  <option value="2" {{old('role') == '2' ? 'selected' : ''}}>Öğrenci</option>
+                  <option value="1" {{old('role') == '1' ? 'selected' : ''}}>Koç</option>
+                  <option value="0" {{old('role') == '0' ? 'selected' : ''}}>Admin</option>
+                </select>
+                <label for="role">Role Seç</label>
+              </div>
               <br><br>
             </div>
+            
             <br>
             <button class="btn btn-primary d-grid w-100">Üye Ol</button>
         </form>

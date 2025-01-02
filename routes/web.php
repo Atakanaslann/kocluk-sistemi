@@ -53,25 +53,13 @@ use App\Http\Controllers\form_layouts\VerticalForm;
 use App\Http\Controllers\form_layouts\HorizontalForm;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PlanController;
 use App\Http\Controllers\tables\Basic as TablesBasic;
 
 // Main Page Route
 Route::get('/', [Analytics::class, 'index'])->name('dashboard-analytics');
 
-// layout
-Route::get('/layouts/without-menu', [WithoutMenu::class, 'index'])->name('layouts-without-menu');
-Route::get('/layouts/without-navbar', [WithoutNavbar::class, 'index'])->name('layouts-without-navbar');
-Route::get('/layouts/fluid', [Fluid::class, 'index'])->name('layouts-fluid');
-Route::get('/layouts/container', [Container::class, 'index'])->name('layouts-container');
-Route::get('/layouts/blank', [Blank::class, 'index'])->name('layouts-blank');
-Route::get('/layouts/ders', [Ders::class, 'index'])->name('layouts-ders');
-Route::get('/layouts/HaftalikPlan', [HaftalikPlan::class, 'index'])->name('layouts-ders');
-Route::get('/layouts/Calismalar', [Calismalar::class, 'index'])->name('layouts-ders');
-Route::get('/layouts/CalismaEkle', [CalismaEkle::class, 'index'])->name('layouts-ders');
-Route::get('/layouts/Gorevlerim', [Gorevlerim::class, 'index'])->name('layouts-ders');
-Route::get('/layouts/Konular', [Konular::class, 'index'])->name('layouts-ders');
-Route::get('/layouts/Kitaplar', [Kitaplar::class, 'index'])->name('layouts-ders');
-Route::get('/layouts/Denemeler', [Denemeler::class, 'index'])->name('layouts-ders');
+
 
 // pages
 Route::get('/pages/account-settings-account', [AccountSettingsAccount::class, 'index'])->name('pages-account-settings-account');
@@ -79,12 +67,6 @@ Route::get('/pages/account-settings-notifications', [AccountSettingsNotification
 Route::get('/pages/account-settings-connections', [AccountSettingsConnections::class, 'index'])->name('pages-account-settings-connections');
 Route::get('/pages/misc-error', [MiscError::class, 'index'])->name('pages-misc-error');
 Route::get('/pages/misc-under-maintenance', [MiscUnderMaintenance::class, 'index'])->name('pages-misc-under-maintenance');
-
-// authentication
-// Route::get('/auth/giris', [giris::class, 'index'])->name('auth-login-basic');
-// Route::get('/auth/register', [RegisterBasic::class, 'index'])->name('register.form');
-// Route::post('/auth/register', [RegisterBasic::class, 'register'])->name('register.submit');
-// Route::get('/auth/forgot-password-basic', [ForgotPasswordBasic::class, 'index'])->name('auth-reset-password-basic');
 
 // cards
 Route::get('/cards/basic', [CardBasic::class, 'index'])->name('cards-basic');
@@ -125,33 +107,56 @@ Route::get('/forms/input-groups', [InputGroups::class, 'index'])->name('forms-in
 Route::get('/form/layouts-vertical', [VerticalForm::class, 'index'])->name('form-layouts-vertical');
 Route::get('/form/layouts-horizontal', [HorizontalForm::class, 'index'])->name('form-layouts-horizontal');
 
-// tables
-// Route::get('/tables/basic', [TablesBasic::class, 'index'])->name('tables-basic');
 
-
+//Anasayfa ekranı
 Route::get('/',[HomeController::class, 'index']);
 
-
+//Kayıt ol ekranı
 Route::get('register',[AuthController::class, 'register']);
 Route::post('register_post',[AuthController::class, 'register_post']);
 
-
+//Giriş ekranı
 Route::get('login',[AuthController::class, 'login']);
 Route::post('login_post',[AuthController::class, 'login_post']);
 
-
+//Şifremi unuttum ekranı
 Route::get('forgot',[AuthController::class, 'forgot']);
 
+//Admin Anasayfa Ekranı
 Route::group(['middlewareAliases' => 'admin'], function(){
     Route::get('admin/dashboard',[DashboardController::class,'dashboard']);
 });
 
+//Koç Anasayfa ekranı
 Route::group(['middlewareAliases' => 'coach'], function(){
     Route::get('coach/dashboard',[DashboardController::class,'dashboard']);
+    Route::get('/students/{id}/plans', [PlanController::class, 'studentPlans'])->name('coach.students.plans'); // Belirli bir öğrencinin planlarını listele
+    Route::post('/students/{id}/plans', [PlanController::class, 'store'])->name('coach.students.plans.store'); // Öğrenci için plan oluştur
+    Route::put('/students/{id}/plans/{planId}', [PlanController::class, 'update'])->name('coach.students.plans.update'); // Plan güncelle
+    Route::delete('/students/{id}/plans/{planId}', [PlanController::class, 'destroy'])->name('coach.students.plans.destroy'); // Plan sil
 });
 
-
+//Öğrenci anasayfa ekranı
 Route::group(['middlewareAliases' => 'student'], function(){
     Route::get('student/dashboard',[DashboardController::class,'dashboard']);
+    Route::get('/plans', [PlanController::class, 'index'])->name('student.plans.index'); // Öğrencinin kendi planlarını listele
+    Route::post('/plans', [PlanController::class, 'store'])->name('student.plans.store'); // Plan oluştur
+    Route::put('/plans/{id}', [PlanController::class, 'update'])->name('student.plans.update'); // Plan güncelle
+    Route::delete('/plans/{id}', [PlanController::class, 'destroy'])->name('student.plans.destroy'); // Plan sil
 });
 
+
+// layout
+Route::get('/layouts/without-menu', [WithoutMenu::class, 'index'])->name('layouts-without-menu');
+Route::get('/layouts/without-navbar', [WithoutNavbar::class, 'index'])->name('layouts-without-navbar');
+Route::get('/layouts/fluid', [Fluid::class, 'index'])->name('layouts-fluid');
+Route::get('/layouts/container', [Container::class, 'index'])->name('layouts-container');
+Route::get('/layouts/blank', [Blank::class, 'index'])->name('layouts-blank');
+Route::get('/layouts/ders', [Ders::class, 'index'])->name('layouts-ders');
+Route::get('/layouts/HaftalikPlan', [HaftalikPlan::class, 'index'])->name('layouts-ders');
+Route::get('/layouts/Calismalar', [Calismalar::class, 'index'])->name('layouts-ders');
+Route::get('/layouts/CalismaEkle', [CalismaEkle::class, 'index'])->name('layouts-ders');
+Route::get('/layouts/Gorevlerim', [Gorevlerim::class, 'index'])->name('layouts-ders');
+Route::get('/layouts/Konular', [Konular::class, 'index'])->name('layouts-ders');
+Route::get('/layouts/Kitaplar', [Kitaplar::class, 'index'])->name('layouts-ders');
+Route::get('/layouts/Denemeler', [Denemeler::class, 'index'])->name('layouts-ders');

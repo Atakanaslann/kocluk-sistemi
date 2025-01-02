@@ -66,8 +66,7 @@ $navbarDetached = ($navbarDetached ?? '');
                       </div>
                     </div>
                     <div class="flex-grow-1">
-                      <h6 class="mb-0">Atakan Aslan</h6>
-                      <small class="text-muted">Student</small>
+                      <h6 class="mb-0">{{$getRecord->name}}</h6>
                     </div>
                   </div>
                 </a>
